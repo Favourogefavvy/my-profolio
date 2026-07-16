@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'skills' %}">Skills</a>
+    <a href="{% url 'blog_list' %}">Blog</a>
+    <a href="{% url 'contact' %}">Contact</a>
+</nav>
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        
+
+        {% endfor %}
+
+    {% endif %}
+
+    {% block content %}
+      <a href="https://wa.me/2348166260351" target="_blank" class="whatsapp-float">💬</a>
+
+    {% endblock %}
+    
+    </div>
+     <footer>
+        <p>&copy; 2026 My Portforlio website</p>
+    </footer> 
+</body>
+</html>
