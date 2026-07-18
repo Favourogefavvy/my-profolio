@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<section class="section-about">
+    <div class="section-header">
+        <h1 class="section-title">About Me</h1>
+        <p>I am a dedicated data analyst and aspiring backend developer who loves turning complex data into useful insights and clean applications.</p>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-card">
+            <h2>My Story</h2>
+            <p>I began my career working in customer-facing roles within the banking and utilities space. Over time, I discovered a passion for data-driven decision making and moved into analytics work using Python, SQL, and visualization tools.</p>
+            <p>Today, I am expanding my skills into backend development with Django, building data-driven applications that are both maintainable and user-friendly.</p>
+        </div>
+
+        <div class="about-card">
+            <h2>What I Offer</h2>
+            <ul>
+                <li>Data analysis & visualization</li>
+                <li>SQL query design and optimization</li>
+                <li>Python scripting for automation</li>
+                <li>Django web applications</li>
+                <li>Reporting, dashboards, and insights</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="timeline-section">
+        <h2>Experience Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-year">2026</span>
+                <div>
+                    <h3>Building Django Projects</h3>
+                    <p>Developing full-stack portfolio and blog sites, improving user experience with responsive design, and managing content with Django.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2025</span>
+                <div>
+                    <h3>Data Analytics in Banking</h3>
+                    <p>Delivered customer insights, trends analysis, and reporting solutions that supported operations and decision-making teams.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2024</span>
+                <div>
+                    <h3>Customer-Facing Operations</h3>
+                    <p>Worked directly with clients to collect requirements, troubleshoot issues, and improve services in the utilities sector.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-cta">
+        <h2>Let’s build something valuable together</h2>
+        <p>If you need help with data analysis, dashboards, or a Django web project, I’m ready to help bring it to life.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Get in Touch</a>
+    </div>
+</section>
+
+{% endblock %}

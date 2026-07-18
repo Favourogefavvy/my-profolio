@@ -1,5 +1,8 @@
+from pathlib import Path
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.templatetags.static import static
 from .forms import ContactForm
 from .models import Skill
 
@@ -7,7 +10,11 @@ from .models import Skill
 
 #Homepage
 def home(request):
-    return render(request, 'portfolio/home.html')
+    profile_image_path = Path(settings.BASE_DIR) / 'static' / 'images' / 'profile.jpg'
+    profile_image_url = static('images/profile.jpg')
+    if profile_image_path.exists():
+        profile_image_url = f"{profile_image_url}?v={int(profile_image_path.stat().st_mtime)}"
+    return render(request, 'portfolio/home.html', {'profile_image_url': profile_image_url})
 
 #skills page
 def skills(request):
@@ -24,3 +31,7 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, 'portfolio/contact.html', {'form': form})
+
+# about page
+def about(request):
+    return render(request, 'portfolio/about.html')

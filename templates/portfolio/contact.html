@@ -4,21 +4,17 @@
 
 {% block content %}
 
-<h1>Contact Me </h1>
-
-<form method ="POST" >
-     
-    {% csrf_token %}
-
-    {{ form.as_p }}
-  
- <a href="{% url 'contact' %}"><button>Contact Me</button></a>
-    <a href="https://wa.me/2348166260351" target="_blank" class="btn-whatsapp">
-        💬 Chat on WhatsApp
-    </a>
-
-    <button type="submit">Send Message</button>
-</form>
+<h1 class="section-title">Contact Me</h1>
+<div class="form-card">
+    <form method="POST" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <a href="https://wa.me/2348166260351" target="_blank" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
+        </div>
+    </form>
+</div>
   
    
 {% endblock %}

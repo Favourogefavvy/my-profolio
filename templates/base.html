@@ -8,30 +8,59 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <nav>
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'skills' %}">Skills</a>
-    <a href="{% url 'blog_list' %}">Blog</a>
-    <a href="{% url 'contact' %}">Contact</a>
+<nav class="site-nav">
+    <div class="nav-inner">
+        <a href="{% url 'home' %}" class="brand">Favour Thomas</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'skills' %}">Skills</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'blog_list' %}">Blog</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </div>
+    </div>
 </nav>
 <div class="container">
     {% if messages %}
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        
-
-        {% endfor %}
-
+        <div class="messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
     {% endif %}
 
     {% block content %}
-      <a href="https://wa.me/2348166260351" target="_blank" class="whatsapp-float">💬</a>
-
     {% endblock %}
-    
+</div>
+<a href="https://wa.me/2348166260351" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">💬</a>
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>&copy; 2026 Favour Ogechi. Crafted with Django.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'skills' %}">Skills</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'blog_list' %}">Blog</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </nav>
     </div>
-     <footer>
-        <p>&copy; 2026 My Portforlio website</p>
-    </footer> 
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const nav = document.querySelector('.site-nav');
+        const toggle = document.querySelector('.nav-toggle');
+        if (!nav || !toggle) return;
+        toggle.addEventListener('click', function () {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('nav-open');
+        });
+    });
+</script>
 </body>
 </html>

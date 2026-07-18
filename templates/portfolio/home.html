@@ -3,28 +3,75 @@
 
 {% block title %}Home{% endblock %}
 
-
 {% block content %}
 
-
-<div class="hero">
+<section class="hero">
     <div class="hero-text">
         <span class="availability-badge">● Available for freelance & remote roles</span>
-        <h1>Hi, I'm <span class="accent">Favour Thomas Ogechi</span></h1>
-         <span class="role-tag">Data Analyst</span>
-    <span class="role-tag">Data Visualization</span>
-    <span class="role-tag">Python & SQL</span>
-    <span class="role-tag">Aspiring Backend Developer</span>
-       <p>I am a Data Analyst with hands-on experience in customer-facing roles across the banking
-        and utilities sectors, currently expanding my expertise into backend development with Python
-        and Django. This portfolio showcases my technical skills, projects, and insights as I continue
-        to grow as a data and software professional</p>
-        <a href="{% url 'contact' %}"><button>Contact Me</button></a>
+        <h1>Hi, I'm <span class="accent">Thomas Favour Ogechi</span></h1>
+        <div class="role-tags">
+            <span class="role-tag">Data Analyst</span>
+            <span class="role-tag">Data Visualization</span>
+            <span class="role-tag">Python & SQL</span>
+            <span class="role-tag">Aspiring Backend Developer</span>
+        </div>
+        <p>I am a Data Analyst with experience in customer-facing roles across banking and utilities, expanding my expertise into backend development with Python and Django. This portfolio highlights my skills, projects, and the impact I bring to data-driven teams.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'contact' %}" class="btn btn-primary">Contact Me</a>
+            <a href="#projects" class="btn btn-outline">See Projects</a>
+        </div>
     </div>
     <div class="hero-photo">
-        <img src="{% static 'images/profile.jpg' %}" alt="My profile photo" class="profile-pic">
+        <img src="{{ profile_image_url }}" alt="My profile photo" class="profile-pic">
     </div>
-</div>
+</section>
+
+<section class="section-about">
+    <div class="section-intro">
+        <h2 class="section-title">About Me</h2>
+        <p>I combine data storytelling with backend development to build solutions that help teams make smarter decisions. I enjoy transforming raw data into clear insights, automating workflows, and building user-friendly dashboards and applications.</p>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <strong>3+</strong>
+            <span>Years of experience</span>
+        </div>
+        <div class="stat-card">
+            <strong>15+</strong>
+            <span>Projects completed</span>
+        </div>
+        <div class="stat-card">
+            <strong>Data + Web</strong>
+            <span>Python, SQL, Django, BI</span>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section-projects">
+    <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <p>Selected work that demonstrates my ability to build analytics solutions, data tools, and interactive dashboards.</p>
+    </div>
+    <div class="project-grid">
+        <article class="project-card">
+            <div class="project-pill">Analytics Dashboard</div>
+            <h3>Customer Behaviour Insights</h3>
+            <p>Built an interactive dashboard to track engagement, revenue trends, and retention metrics using Python, SQL, and interactive visualizations.</p>
+            <div class="project-meta">Python · SQL · Dashboards</div>
+        </article>
+        <article class="project-card">
+            <div class="project-pill">Automation</div>
+            <h3>Data Processing Pipeline</h3>
+            <p>Designed a robust ETL pipeline to clean and consolidate cross-functional data, reducing manual reporting time by 40%.</p>
+            <div class="project-meta">Django · Pandas · Data Engineering</div>
+        </article>
+        <article class="project-card">
+            <div class="project-pill">Web App</div>
+            <h3>Portfolio CMS</h3>
+            <p>Developed this portfolio using Django, with responsive design and mobile-friendly navigation for a polished user experience.</p>
+            <div class="project-meta">Django · HTML · CSS</div>
+        </article>
+    </div>
+</section>
+
 {% endblock %}
-
-
