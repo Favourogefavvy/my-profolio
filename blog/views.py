@@ -80,3 +80,14 @@ def blog_delete(request, pk):
         return redirect('blog_list')
     context = {'blog': blog}
     return render(request, 'blog/Blog_confirm_delete.html', context)
+
+def blog_create(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_list')
+    else:
+        form = BlogForm()
+    context = {'form': form}
+    return render(request, 'blog/blog_form.html', context)
