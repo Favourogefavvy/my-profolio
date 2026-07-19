@@ -22,6 +22,7 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
+    overflow-x: hidden;
     font-family: 'Segoe UI', 'Segoe UI Variable', system-ui, sans-serif;
     background: radial-gradient(circle at top left, rgba(74,144,217,0.16), transparent 25%),
                 linear-gradient(180deg, #f4f7fb 0%, #eef2f7 100%);
@@ -73,6 +74,18 @@ select:focus {
     width: min(96%, 1120px);
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+section,
+.card,
+.skill-card,
+.form-card,
+.blog-card,
+.section-about,
+.section-projects {
+    width: min(100%, 1120px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 nav.site-nav {
@@ -188,6 +201,7 @@ nav.site-nav {
     border-radius: 30px;
     box-shadow: var(--shadow);
     backdrop-filter: blur(6px);
+    overflow: hidden;
 }
 
 .hero-text {
@@ -738,6 +752,12 @@ footer {
         border-bottom-right-radius: 20px;
     }
 
+    .site-nav.nav-open .nav-links {
+        max-height: 320px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
     .nav-links a {
         padding: 1rem 1.25rem;
         border-top: 1px solid rgba(255,255,255,0.08);
@@ -754,26 +774,64 @@ footer {
     .hero {
         flex-direction: column;
         text-align: center;
-    }
-
-    .hero-photo {
-        width: 220px;
-    }
-
-    .hero-text h1 {
-        font-size: 2.4rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        padding: 1.75rem 1rem;
-        gap: 1.5rem;
+        padding: 2rem 1.25rem;
     }
 
     .hero-photo {
         width: 100%;
         max-width: 240px;
+        margin: 0 auto;
+    }
+
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-text p {
+        margin: 0 auto 1.5rem;
+    }
+
+    .stats-grid,
+    .about-grid,
+    .project-grid,
+    .timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        padding: 1.25rem;
+    }
+
+    .section-about,
+    .section-projects,
+    .form-card,
+    .card,
+    .blog-card {
+        padding: 1.75rem;
+    }
+
+    .about-cta {
+        padding: 1.5rem;
+    }
+
+    .about-cta h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .hero-photo {
+        width: 100%;
+        max-width: 220px;
     }
 
     .hero-text p {
@@ -788,10 +846,36 @@ footer {
         padding: 0 0.75rem;
     }
 
-    .card,
-    .skill-card,
+    .section-about,
+    .section-projects,
     .form-card,
+    .card,
     .blog-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .section-about,
+    .section-projects {
+        margin: 2rem auto;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn,
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions button,
+    .form-actions .btn-whatsapp {
+        min-width: 100%;
     }
 }
